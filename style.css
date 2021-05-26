@@ -1,0 +1,83 @@
+* {
+  /*basic reset*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  /*take up all available height*/
+  height: 100%
+}
+body {
+  font: 100% 'Raleway', sans-serif;
+}
+/*this is to target IE11 only.  IE does not play nice with min-heights and column wrap. More modifications will probably be needed.*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .wrapper {
+    height: 100%;
+    flex-flow: column nowrap
+  }
+}
+.wrapper {
+  /*Fill all possible height with the wrapper. I believe height: 100% will also work.*/
+  min-height: 100%;
+}
+.wrapper, .slide {
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column wrap;
+  /*column wrap works better on IOS*/
+  -webkit-flex-flow: column wrap;
+  /*this is the key to keeping elements such as the nav at the top and the footer at the bottom.  This might not always be needed.*/
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  text-align: center
+}
+.slide {
+  flex: 1;
+  -webkit-flex: 1
+}
+.hidden-slide {
+  display: none
+}
+a {
+  text-decoration: none
+}
+a:hover {
+  color: darkgreen
+}
+p {
+  color: rgb(105,105,105);
+  width: 80%;
+  margin: auto;
+  line-height: 1.3
+}
+.font-large {
+  font-size: 5vw
+}
+.font-small {
+  font-size: 1.7em;
+}
+h1 { 
+  font: 8vw 'Montserrat', sans-serif;
+  color: #002F2F;
+}
+nav {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  margin: 20px 0
+}
+button {
+  cursor: pointer
+}
+button, #pagination {
+  font: 1.5em 'Raleway', sans-serif;
+  margin-right: 10px;
+  padding: 10px;
+}
+.disabled {
+  opacity: 0.3;
+  pointer-events: none
+}
